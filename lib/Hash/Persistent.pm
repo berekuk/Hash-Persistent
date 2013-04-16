@@ -1,5 +1,6 @@
 package Hash::Persistent;
 
+# VERSION
 # ABSTRACT: nested hashref serializable to the file
 
 =head1 SYNOPSIS
