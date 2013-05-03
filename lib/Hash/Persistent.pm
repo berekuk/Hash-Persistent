@@ -157,7 +157,7 @@ sub new {
             $self = $data;
             $_self->{format} = 'dumper' if $_self->{format} eq 'auto';
         } elsif ($str =~ /^{/) {
-            $self = JSON::XS->new->decode($str);
+            $self = JSON->new->decode($str);
             $_self->{format} = 'json' if $_self->{format} eq 'auto';
         }
         else {
