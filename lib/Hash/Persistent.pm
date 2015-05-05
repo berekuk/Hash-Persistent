@@ -157,7 +157,7 @@ sub new {
             $self = $data;
             $_self->{format} = 'dumper' if $_self->{format} eq 'auto';
         } elsif ($str =~ /^{/) {
-            $self = JSON::XS->new->decode($str);
+            $self = JSON->new->decode($str);
             $_self->{format} = 'json' if $_self->{format} eq 'auto';
         }
         else {
@@ -213,6 +213,7 @@ sub commit {
     print {$tmp} $serialized or die "print failed: $!";
 
     chmod $_self->{mode}, $tmp_fname if defined $_self->{mode};
+    close $tmp;
     rename $tmp_fname => $fname;
 }
 
