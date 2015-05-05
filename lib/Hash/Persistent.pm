@@ -213,6 +213,7 @@ sub commit {
     print {$tmp} $serialized or die "print failed: $!";
 
     chmod $_self->{mode}, $tmp_fname if defined $_self->{mode};
+    close $tmp;
     rename $tmp_fname => $fname;
 }
 
